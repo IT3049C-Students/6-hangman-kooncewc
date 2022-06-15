@@ -2,6 +2,8 @@
 
 const guesses = []
 correctguess = 0;
+const History = []
+const Htext = document.getElementById('guessHistory')
 class Hangman {
   constructor(_canvas) {
     if (!_canvas) {
@@ -40,7 +42,7 @@ clearCanvas();
 this.drawBase();
 
 //show the game wrapper when pressing start
-window.onload = function(){
+window.onload = start(){
 
   document.getElementById("start-button").addEventListener( 'click', changeClass);
   Event.preventDefault();
@@ -76,6 +78,9 @@ if(this.guesses == letter){
   throw 'letter already guessed!'
 }
 guesses.push(letter)
+
+
+
 
 if (r.includes(letter)){
 
@@ -189,6 +194,9 @@ elseif(wrongGuess == 6)
    {
 guesses.join(', ');
 let textGuess = guess.toString();
+
+//Print previous guesses to HTEXT
+textGuess = Htext;
 
     return textGuess;
   }

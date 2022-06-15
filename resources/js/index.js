@@ -1,3 +1,4 @@
+const input = document.querySelectorAll('guessInput')
 // START + DIFFICULTY SELECTION
 const startWrapper = document.getElementById(`startWrapper`);
 const difficultySelectForm = document.getElementById(`difficultySelect`);
@@ -20,7 +21,9 @@ let canvas = document.getElementById(`hangmanCanvas`);
 
 // The following Try-Catch Block will catch the errors thrown
 try {
+
   // Instantiate a game Object using the Hangman class.
+ Hangman game = new Hangman(word);
 
   // add a submit Event Listener for the to the difficultySelectionForm
   //    get the difficulty input
@@ -29,7 +32,16 @@ try {
   //       2. show the gameWrapper
   //       3. call the game getWordHolderText and set it to the wordHolderText
   //       4. call the game getGuessessText and set it to the guessesText
+
   difficultySelectForm.addEventListener(`submit`, function (event) {});
+  start();
+  {
+startWrapper.className == 'hidden'
+gameWrapper.className == ''
+getWordHolderText() == wordHolderText
+getGuesses() == guessesText
+
+  }
 
   // add a submit Event Listener to the guessForm
   //    get the guess input
@@ -44,13 +56,40 @@ try {
   //      2. disable the guessButton
   //      3. show the resetGame button
   // if the game is won or lost, show an alert.
-  guessForm.addEventListener(`submit`, function (e) {});
+  guessForm.addEventListener(`submit`, guess);
+guess(isOver,didWin);
+{
+if (isOver == true){
+  document.getElementById("guessInput").disabled = true;
+  document.getElementById("guessButton").disabled = true;
+  document.getElementById("resetGame") == resetGame
+  resetGame.className == ('');
+  if(didWin == true)
+  {
+  alert('You win!')
+  }
+  else{
+    alert('You lose!')
+  }
+}
+}
+wordHolderText == game.getHolderText;
+guessesText == game.getGuessesText;
+input.value ='';
 
   // add a click Event Listener to the resetGame button
   //    show the startWrapper
   //    hide the gameWrapper
-  resetGame.addEventListener(`click`, function (e) {});
-} catch (error) {
+  resetGame.addEventListener(`click`, showHide);
+  showHide()
+  {
+gameWrapper.className==('hidden')
+startWrapper.className==('')
+  }
+
+} catch (error)
+ {
   console.error(error);
   alert(error);
 }
+
